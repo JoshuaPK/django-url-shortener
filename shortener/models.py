@@ -20,3 +20,10 @@ class Link(models.Model):
 
     class Meta:
         get_latest_by = 'date_submitted'
+
+class Referrer(models.Model):
+    """
+    Model that represents an instance of a click on a shortened link.
+    """
+    url = models.ForeignKey(Link)
+    

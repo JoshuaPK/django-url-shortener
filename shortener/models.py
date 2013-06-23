@@ -8,7 +8,7 @@ class Link(models.Model):
     """
     Model that represents a shortened URL
     """
-    url = models.URLField()
+    url = models.URLField(max_length=2048)
     date_submitted = models.DateTimeField(auto_now_add=True)
     usage_count = models.PositiveIntegerField(default=0)
 
@@ -26,4 +26,24 @@ class Referrer(models.Model):
     Model that represents an instance of a click on a shortened link.
     """
     url = models.ForeignKey(Link)
+    date_clicked = models.DateTimeField(auto_now_add=True)
+    referrer = models.URLField(max_length=2048)
+    who_ip_clicked = models.IPAddressField()
+
+class TagList(models.Model):
+    """
+    Model that represents the tags themselves.
+    """
+    tag_text = models.CharField(max_length = 64)
+    number_of_times_used = models.BigIntegerField()
     
+
+class URLTags(models.Model):
+    """
+    Model that represents the tags attached to each URL.
+    """
+    url = models.ForeignKey(Link.id)
+    date_added = models.DateTimeField(auto_now_add=True)
+    who_added = models.User
+    who_ip_added = models.IPAddressField()
+    tag_text = models.ForeignKey(TagList.id)

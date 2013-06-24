@@ -8,7 +8,14 @@ The following URL:<br/>
 Was shortened to:<br/>
 <input id="link" type="text" size="30" value="{% short_url link %}"/>
 
-{% comment %} Need to add fields for adding tags to the URL's. {% endcomment %}
+{% comment %}
+Need to add fields for adding tags to the URL's.
+Need to include short_url link in the form data - no,
+I need to use sessions for this.
+Be sure to set the control containing the pre-selected links
+such that you can select multiple links - a multi-select box.
+{% endcomment %}
+
 
 
 

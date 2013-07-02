@@ -49,6 +49,8 @@ def submit(request):
         
         # JPK Need to put session info here, in the list that is
         # passed to the form
+
+        request.session['link_id'] = link.id        
         
         return render(request, 'shortener/submit_success.html', {'link': link})
     else:
@@ -60,7 +62,7 @@ def add_tag_to_link(request):
 
     # Where do we get the link?  From the session.  Then
     
-    link = # get the link here
+    link = request.session['link_id']
 
     form = AddTagForm(request)
     AddTagForm.link = link.id

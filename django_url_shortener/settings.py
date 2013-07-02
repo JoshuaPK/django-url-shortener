@@ -85,7 +85,8 @@ STATICFILES_FINDERS = (
 )
 
 # Make this unique, and don't share it with anybody.
-SECRET_KEY = '#### CHANGE_ME ####'
+# JPK - this key is for the public code on GitHub.
+SECRET_KEY = '549733c7-8fda-4fe9-8e61-c73e26760e48'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
@@ -131,6 +132,17 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'shortener',
 )
+
+# JPK: Setting the SESSION_ENGINE variable.
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
+
+# Protip: modify the sessions table in Postres to be unlogged.
+# http://stackoverflow.com/questions/7938610/how-to-apply-postgresql-9-1-unlogged-feature-to-an-existing-table
+
+# create unlogged table django_session_alt as 
+#   select * from django_session;
+# drop table django_session;
+# alter table django_session_alt rename to django_session;
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to

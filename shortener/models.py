@@ -46,4 +46,4 @@ class URLTags(models.Model):
     date_added = models.DateTimeField(auto_now_add=True)
     who_added = models.User
     who_ip_added = models.IPAddressField()
-    tag_text = models.ForeignKey(TagList.id)
+    tag_text = models.ManyToManyField(TagList)

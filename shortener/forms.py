@@ -34,10 +34,19 @@ class LinkSubmitForm(forms.Form):
         return custom
 
 class AddTagForm(ModelForm):
+    """
+    This form adds tags to the tag table.
+    """
+
+    class Meta:
+        model = TagList
+        fields = 'tag_text'
+
+class TagURLForm(ModelForm):
+    """
+    This form attaches tags to the URL's.
+    """
 
     class Meta:
         model = URLTags
-        fields = 'tag_text'
-
-
-    pass
+        fields = ''

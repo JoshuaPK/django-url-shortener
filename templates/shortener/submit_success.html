@@ -8,23 +8,4 @@ The following URL:<br/>
 Was shortened to:<br/>
 <input id="link" type="text" size="30" value="{% short_url link %}"/>
 
-{% comment %}
-Need to add fields for adding tags to the URL's.
-Be sure to set the control containing the pre-selected links
-such that you can select multiple links - a multi-select box.
-
-Add two forms: the first form is based on the TagList model,
-and the second is based on the URLTags model.  If we post from
-the TagList form, we add that tag(s) to the TagList table, and
-attach it to the URL.  If we post from the URLTags form, we
-simply attach the selected tag(s) to that particular URL.
-
-Tags are comma separated strings that can be up to 64 characters
-each.
-
-{% endcomment %}
-
-
-
-
 {% endblock content %}

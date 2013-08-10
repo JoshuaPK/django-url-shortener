@@ -35,6 +35,7 @@ class TagList(models.Model):
     Model that represents the tags themselves.
     """
     tag_text = models.CharField(max_length = 64)
+    tag_desc = models.TextField()
     number_of_times_used = models.BigIntegerField()
     
 

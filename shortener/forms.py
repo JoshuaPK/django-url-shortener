@@ -40,7 +40,7 @@ class AddTagForm(ModelForm):
 
     class Meta:
         model = TagList
-        fields = 'tag_text'
+        fields = ('tag_text')
 
 class TagURLForm(ModelForm):
     """
@@ -49,4 +49,4 @@ class TagURLForm(ModelForm):
 
     class Meta:
         model = URLTags
-        fields = ''
+        fields = 'tag_text'
